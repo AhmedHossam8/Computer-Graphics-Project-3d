@@ -9,6 +9,34 @@
 float yRotated = 0;
 void timer(int);
 float step=0;
+double shiftXaxis = 0;
+double shiftZaxis = 0;
+
+void keyboard(int key, int x, int y) {
+    switch (key) {
+    case GLUT_KEY_LEFT:
+        shiftXaxis --;
+        break;
+    case GLUT_KEY_RIGHT:
+        shiftXaxis ++;
+        break;
+    case GLUT_KEY_UP:
+        shiftZaxis--;
+        break;
+
+    case GLUT_KEY_DOWN:
+        shiftZaxis++;
+        break;
+    }
+
+    if(shiftXaxis >= 11){
+        shiftXaxis = -10;
+    }
+    if(shiftXaxis <= -10){
+        shiftXaxis = 10;
+    }
+
+}
 
 void triangle()
 {
@@ -166,9 +194,7 @@ void display (void)
     //iceman 1
     glPushMatrix();
     glTranslatef(-3,-1.5,0);
-    glRotatef(yRotated,0.0f, 1.0f, 0.0f);
-    glRotatef( 90.0f,0.0f,1.0f,0.0f);
-    yRotated+= 0.1f;
+    glTranslated(shiftXaxis,0,0);
     iceMan();
     glPopMatrix();
 
@@ -260,6 +286,7 @@ int main (int argc, char **argv)
     glutDisplayFunc (display);
     glutReshapeFunc (reshapeFunc);
     glutIdleFunc    (idleFunc);
+    glutSpecialFunc(keyboard);
 
     glClearColor(0.0f, 1.0f, 1.0f, 1.0f);
     texture();
