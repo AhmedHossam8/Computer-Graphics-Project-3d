@@ -276,7 +276,7 @@ void display (void)
     //iceman 1
     glPushMatrix();
     glTranslatef(-3,-1.5,0);
-    glTranslated(shiftXaxis,0,0);
+    glTranslated(shiftXaxis,0,shiftZaxis);
     iceMan();
     glPopMatrix();
 
