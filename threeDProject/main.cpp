@@ -4,6 +4,7 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 #include <windows.h>
+#include <stdlib.h>
 
 float yRotated = 0;
 void timer(int);
