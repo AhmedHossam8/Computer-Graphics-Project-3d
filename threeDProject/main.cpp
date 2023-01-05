@@ -74,6 +74,15 @@ void triangle()
     glPopMatrix();
 }
 
+void fallingIce(){
+    //ice
+    glPushMatrix();
+    glTranslatef(-4,3,0);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glutSolidSphere(0.08,30,30);
+    glPopMatrix();
+}
+
 void sun()
 {
     glColor4f(1.0f, 1.0f, 0.0f, 0.0f);
@@ -87,19 +96,19 @@ void sun()
 void sky()
 {
     glPushMatrix();
-    glTranslatef(0-step,2.7,0);
+    glTranslatef(0+step,2.7,0);
     glColor3f(1.0f, 1.0f, 1.0f);
     glutSolidSphere(0.4,30,30);
     glPopMatrix();
 
     glPushMatrix();
-    glTranslatef(-0.3-step,2.5,0);
+    glTranslatef(-0.3+step,2.5,0);
     glColor3f(1.0f, 1.0f, 1.0f);
     glutSolidSphere(0.4,30,30);
     glPopMatrix();
 
     glPushMatrix();
-    glTranslatef(0.3-step,2.5,0);
+    glTranslatef(0.3+step,2.5,0);
     glColor3f(1.0f, 1.0f, 1.0f);
     glutSolidSphere(0.4,30,30);
     glPopMatrix();
@@ -137,6 +146,7 @@ void iceMan()
     glPopMatrix();
 }
 
+
 //------------------------------  reshapeFunc  ---------------------------------
 
 void reshapeFunc (int w, int h)
@@ -156,6 +166,78 @@ void display (void)
     glClear        (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity ();
     glTranslatef    (0.0, 0.0, -15.0);
+
+    //falling ice
+    glPushMatrix();
+    glTranslated(0,-step,0);
+    fallingIce();
+    glPopMatrix();
+
+    //falling ice
+    glPushMatrix();
+    glTranslated(1,0.5-step,0);
+    fallingIce();
+    glPopMatrix();
+
+    //falling ice
+    glPushMatrix();
+    glTranslated(0.5,-0.5-step,0);
+    fallingIce();
+    glPopMatrix();
+
+    //falling ice
+    glPushMatrix();
+    glTranslated(1.5,-1-step,0);
+    fallingIce();
+    glPopMatrix();
+
+    //falling ice
+    glPushMatrix();
+    glTranslated(2,0-step,0);
+    fallingIce();
+    glPopMatrix();
+
+    //falling ice
+    glPushMatrix();
+    glTranslated(2.5,0-step,0);
+    fallingIce();
+    glPopMatrix();
+
+    //falling ice
+    glPushMatrix();
+    glTranslated(3,0.5-step,0);
+    fallingIce();
+    glPopMatrix();
+
+    //falling ice
+    glPushMatrix();
+    glTranslated(3.5,1-step,0);
+    fallingIce();
+    glPopMatrix();
+
+    //falling ice
+    glPushMatrix();
+    glTranslated(4,0-step,0);
+    fallingIce();
+    glPopMatrix();
+
+    //falling ice
+    glPushMatrix();
+    glTranslated(4.5,0.5-step,0);
+    fallingIce();
+    glPopMatrix();
+
+    //falling ice
+    glPushMatrix();
+    glTranslated(5,0.5-step,0);
+    fallingIce();
+    glPopMatrix();
+
+    //falling ice
+    glPushMatrix();
+    glTranslated(5.5,1-step,0);
+    fallingIce();
+    glPopMatrix();
 
     //sun
     glPushMatrix();
@@ -220,7 +302,6 @@ void display (void)
     glRotatef(15, 0, 1, 0);
     glutSolidCube(2);
     glPopMatrix();
-
     glutSwapBuffers();
 }
 
