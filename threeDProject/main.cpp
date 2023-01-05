@@ -274,4 +274,7 @@ void timer(int)
     glutPostRedisplay();
     glutTimerFunc(1000/60,timer,0);
     step+=0.005;
+    if (step>=10){
+        step = -10;
+    }
 }
